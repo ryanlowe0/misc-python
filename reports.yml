@@ -1,0 +1,122 @@
+
+cancel:
+    fields: [foid, reference, cancel_date, canceller, cancel_reason, pdf]
+    rlevel: detail
+    title: Cancel Report
+
+coverdemand:
+    dims:
+        - [cover_color, product]
+    filters: ["cc.code <> 'na'", 'p.product_id.in_(range(1, 5))']
+    title: Cover Demand Report
+
+daily:
+    dims:
+        - [order_date, product_name]
+    extra_cols: [units, pages, revenue]
+    title: Daily Report
+
+dailysales:
+    dims:
+        - [order_date, product_type]
+    extra_cols: [units, pages, revenue, revenue_per_order, 
+                 revenue_per_unit, units_per_order, pages_per_unit]
+    filters: ["o.state_id <= 500"]
+    title: Daily Sales Summary
+
+error:
+    fields: [order_datetime, foid, reference, unerror_button, 
+             error_date, error_reason, pdf]
+    filters: ['wi.state_id == 100']
+    rlevel: detail
+    title: Error Report
+
+largeorder:
+    fields: [press_routing, foid, reference, order_datetime, product_name, 
+             destination, qty, pages, total_pages, gross, net, order_date, 
+             ship_date, ship_method]
+    dims:
+        - [order_date, product_name]
+    filters: ["(oi.gross > 1000) | ((oi.qty > 20) & (pt.code <> 'card'))"]
+    title: Large Orders
+
+ordermetrics:
+    dims:
+        - [product_name, cover_material]
+    extra_cols: [units, pages, shipping, net, revenue, units_per_order, 
+                 pages_per_unit, shipping_per_order, net_per_order, 
+                 revenue_per_order]
+    title: Order Metrics
+
+orderstatestats:
+    barcoded: true
+    fields: [press_routing, foid, reference, order_datetime, product_name, 
+             destination, qty, pages, activity, activity_date, batch_id, 
+             comments]
+    dims:
+        - [currency, activity]
+        - [ship_country, activity]
+    title: Order State Statistics
+
+orderstatus:
+    barcoded: true
+    fields: [press_routing, foid, reference, order_datetime, product_name, 
+             destination, qty, pages, location, batch_id, comments]
+    dims:
+        - [order_date, location]
+        - [order_date, location]
+    facts: [orders, units]
+    title: Order Status
+
+openorders:
+    fields: [foid, order_date, product, activity, qty, ship_method]
+    filters: ['wi.state_id < 500']
+    rlevel: detail
+    title: Open Orders
+
+partner:
+    fields: [foid, charge_date, promo, customer_name, email]
+    dims:
+        - [order_date, partner]
+    filters: ["par.code <> 'na'"]
+    title: Partner Report
+
+productaging:
+    barcoded: true
+    fields: [press_routing, foid, reference, order_datetime, product_name, 
+             destination, qty, pages, activity, activity_date, comments]
+    dims:
+        - [product_name, activity]
+    title: Product Aging
+
+productstyle:
+    dims:
+        - [theme, product_type]
+    filters: ["t.name <> 'N/A'", 'sc.software_client_id.in_([2, 3])']
+    title: Product Style Report
+
+quality:
+    fields: [press_routing, foid, reference, order_datetime, product_name, 
+             destination, qty, pages, print_date, rework_date, rework_qty, 
+             press, operator, rework_reason]
+    dims:
+        - [order_date, rework_reason]
+    title: Quality Report
+
+stateaging:
+    barcoded: true
+    fields: [press_routing, foid, reference, order_datetime, product_name, 
+             destination, qty, pages, activity, activity_date, comments]
+    dims:
+        - [order_date, activity]
+        - [last_update, activity]
+    title: State Aging
+
+turnaround:
+    dims:
+        - [turnaround, product]
+        - [turnaround, product_percent]
+    filters: ["o.state_id == 500", 'pt.product_type_id <> 5']
+    title: Turnaround Report
+
+

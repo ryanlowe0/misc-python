@@ -1,0 +1,147 @@
+pocket:
+    - entry
+    - pull
+    - jpeg
+    - push-jpeg
+    - order-release
+    - batch-add
+    - release
+    - batch-imp
+    - q-prt-batch
+    - press
+    - batch-mnfst
+    - print
+    - cut
+    - status-email*
+    - qa-2
+    - pack
+    - ship
+    - ship-email*
+
+diecut:
+    - entry
+    - pull
+    - jpeg
+    - push-jpeg
+    - order-release
+    - batch-add
+    - release
+    - batch-imp
+    - q-prt-batch
+    - press
+    - batch-mnfst
+    - print
+    - cut
+    - status-email*
+    - qa-2
+    - pack
+    - ship
+    - ship-email*
+
+jacketed:
+    - entry
+    - pull
+    - jpeg
+    - push-jpeg
+    - order-release
+    - batch-add
+    - release
+    - batch-imp
+    - q-prt-batch
+    - press
+    - batch-mnfst
+    - print
+    - cut
+    - status-email*
+    - qa-2
+    - jckt
+    - qa-3
+    - pack
+    - ship
+    - ship-email*
+    
+photofinish:
+    - entry
+    - pull
+    - jpeg
+    - push-jpeg
+    - order-release
+    - batch-add
+    - release
+    - batch-imp
+    - q-prt-batch
+    - press
+    - batch-mnfst
+    - print
+    - cut
+    - status-email*
+    - print-c
+    - qa-pf
+    - qa-2
+    - pack
+    - ship
+    - ship-email*
+
+jacketonly:
+    - entry
+    - pull
+    - jpeg
+    - push-jpeg
+    - order-release
+    - batch-mnfst
+    - jckt
+    - qa-3
+    - pack
+    - ship
+    - ship-email*
+
+calendar:
+    - entry
+    - pull
+    - jpeg
+    - push-jpeg
+    - order-release
+    - batch-add
+    - release
+    - batch-imp
+    - q-prt-batch
+    - press
+    - batch-mnfst
+    - print
+    - cut
+    - status-email*
+    - pack
+    - ship
+    - ship-email*
+
+card:
+    - entry
+    - pull
+    - jpeg
+    - push-jpeg
+    - order-release
+    - batch-add
+    - release
+    - batch-imp
+    - q-prt-batch
+    - press
+    - batch-mnfst
+    - print
+    - cut
+    - status-email*
+    - envl
+    - pack
+    - ship
+    - ship-email*
+    
+share:
+    - entry
+    - pull
+    - jpeg
+    - push-jpeg
+    - share-email*
+
+giftcert:
+    - entry
+    - payment
+    - giftcert-email*

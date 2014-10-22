@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 
-
 '''
 
 An interpreter for the Joy programming language written in Python.
 
+
+
 '''
 
 
-from tools import *
 from copy import deepcopy
 
 
@@ -114,40 +114,25 @@ class Joy(object):
     
     def run(self, prog):
         tokens = self.parse(prog)
-        self.global_stack = []
         res = self.eval(tokens, [])
         return ' '.join(map(str, reversed(res)))
     
-    def stack_str(self, stack):
-        return ' '.join([str(t).rstrip('_') for t in stack])
 
-    def eval(self, tokens, stack, level=0):
+    def eval(self, tokens, stack):
         line = 1
         while tokens:
-            gs = self.stack_str(self.global_stack)
-            ls = self.stack_str(stack)
             tok = tokens.pop(0)
-            print '\t' * level + lightyellow(tok), gs.replace(ls, lightblue(ls))
-            if level == 0:
-                self.global_stack = stack[:]
             if tok == '\n': line += 1
             elif isinstance(tok, list):
                 stack.insert(0, tok)
             elif tok in self.definitions:
-                self.eval(deepcopy(self.definitions[tok]), stack, level+1)
+                self.eval(deepcopy(self.definitions[tok]), stack)
             elif str(tok).startswith('py:'):
                 self.doPy(tok.split(':')[1], stack)
             elif tok not in dir(self):
                 stack.insert(0, tok)
             else:
-                #print lightyellow(stack)
                 getattr(self, tok)(stack)
-            gs = self.stack_str(self.global_stack)
-            ls = self.stack_str(stack)
-            print gs.replace(ls, lightblue(ls))
-            if level == 0:
-                self.global_stack = stack[:]
-            print '---'
         return stack
 
     def doPy(self, tok, stack):
@@ -209,8 +194,7 @@ class Joy(object):
     def append(self, stack): stack[:1] = stack[0] + [stack[1]]
     def push(self, stack): stack[:1] = [stack[0]] + stack[1]
     def range_(self, stack): stack[:2] = [range(stack[1], stack[0])]
-    def put(self, stack): print eval(str(stack[0])),
-    def write(self, stack): sys.stdout.write(eval(str(stack[0])))
+    def put(self, stack): print stack[0],
     def stack(self, stack): stack.insert(0, deepcopy(stack))
     def clear(self, stack): stack[:] = []
     def print_(self, stack): print stack
@@ -224,8 +208,6 @@ class Joy(object):
             print pre, s, post
         print
         stack[:] = []
-    def nl(self, stack):
-        print
     
     def map_(self, stack):
         prog, seq = deepcopy(stack[:2])
@@ -324,17 +306,17 @@ def test():
 
     joy.run('''
 
-        #[ popd  [pop ] dip ] def
-        #[ dupd  [dup ] dip ] def
-        #[ swapd [swap] dip ] def
+        [ popd  [pop ] dip ] def
+        [ dupd  [dup ] dip ] def
+        [ swapd [swap] dip ] def
 
-       # 
-        #1 2 3 swapd                                 dump
-        #[1 2 3 4 5] [6 -] map                       dump
-        #1 2 3 [pop] dip                             dump
+        
+        1 2 3 swapd                                 dump
+        [1 2 3 4 5] [6 -] map                       dump
+        1 2 3 [pop] dip                             dump
         #[1 2 3 4] 2 at                              dump
         #2 [1 2 3 4] of                              dump
-        12 [1000 <] [2 /] [3 *] ifte                dump
+        #12 [1000 <] [2 /] [3 *] ifte                dump
         #[1 2 3 4] [1 + put] step                    dump
         #[1 2 3 4] [3 <] filter                      dump
         #[2 5 3] 0 [+] fold                          dump
@@ -342,38 +324,31 @@ def test():
         #[2 6 4] dup 0 [+] fold swap size /          dump
         #[2. 5 4] [0 [+] fold] [size] cleave /       dump
         #[1 2] len 2 =                               dump
-
-        #9 
-        #  [2 >] 
-        #  [1 - put '::' write pop] 
-        #while
-        #pop
-        #nl nl
-
+        #9 [2 >] [1 - put] while pop                 
 
         #[ lower 1 py:string.lower ] def
-        #'ThIs HAd fUnkY CaSinG' lower               dump
+        #'ThIs HAs fUnkY CaSinG' lower               dump
 
-       # 
-        #[fact [1 1] dip [dup [*] dip succ] times pop] def
-        #5 fact                                       dump
+        
+        [fact [1 1] dip [dup [*] dip succ] times pop] def
+        5 fact                                      dump
         
 
-        #[ fib
-        #        [1 0] dip
-        #        [swap [+] unary]
-        #    times
-        #        [pop]
-        #    dip
-        #] def
+        [ fib
+                [1 0] dip
+                [swap [+] unary]
+            times
+                [pop]
+            dip
+        ] def
 
 
-        #8 fib dump
+        8 fib dump
 
         #[dig2 [] cons cons dip] def
         #['C'] ['B'] ['A'] dig2 dump
-       # 
-        #1 9 .. dump
+        
+        1 9 .. dump
 
 
     ''')

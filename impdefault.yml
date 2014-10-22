@@ -1,0 +1,26 @@
+address: MyPublisher 400 Columbus Ave Valhalla NY 10595 US
+archive_dir: '.'
+barcode_suffix: ""
+code: H
+comments: 
+cover:
+cover_swatch_file:
+date: 2009-05-01
+flag: US
+order_item_id: 
+method: FEDEX_STANDARD
+order_number: T000000
+order_qty: 1
+orientation: 
+page_list:
+page_siding: 2
+pages: 
+pdfname: 
+print_reason: new
+print_return_address:
+print_qty: 1
+product: Classic Jacketed Book Duplex
+qty: 1
+return_address: 
+show_cover: 1
+staple: 

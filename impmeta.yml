@@ -1,0 +1,269 @@
+# cover types
+
+classic-jacket:
+    barcode: front 630,16
+    barcode-size: 12
+    color: green
+    crop-size: 1, 50, 8, 5.67
+    id-side: non-binding
+    id-text: <foid> - Jacket - Qty <qty>
+    layout: 1x1
+    orientation: west
+    pdf-size: 900,2592
+    simplex: yes
+    size: 2256.93,645.93
+
+deluxe-jacket:
+    barcode: front 818,22
+    barcode-size: 12
+    color: green
+    crop-size: 1, 50, 8, 5.67
+    id-side: non-binding
+    id-text: <foid> - Jacket - Qty <qty>
+    layout: 1x1
+    orientation: west
+    pdf-size: 900,3024
+    simplex: yes
+    size: 2801.43,839.43
+
+deluxe-die:
+    barcode: front vertical 650,220
+    color: red
+    id-text: <foid> - <page> of <qty>
+    layout: 2x1
+    media-box: 50.2069,58.8064 663.714x510.714
+    orientation: north
+    simplex: yes
+    size: 1053.36,813.6
+
+classic-die:
+    barcode: front vertical 170,500
+    color: red
+    id-text: <foid> - <page> of <qty>
+    layout: 2x2
+    media-box: 39.8892,50.1545 416.25x524.25
+    orientation: west
+    simplex: yes
+    size: 620.5,800.5
+
+pocket:
+    barcode: back 420,1045
+    center-lines: yes
+    chart-orient: horiz
+    color: red
+    crop-size: .5, 5, 8, 4.32
+    gap: 21.6
+    id-side: non-binding
+    id-size: 20
+    id-text: <foid> - <page> of <qty>
+    layout: 1x2
+    logo: back
+    no-flip: yes
+    orientation: west
+    pdf-size: 898.56,1274.4
+    #pre-trim-crops: 6.16,0
+    reverse-cols: yes
+    size: 1204.56,438.48
+
+classic-wrap:
+    barcode: front vertical 450,-22
+    barcode-size: 12
+    center-lines: horiz 120
+    center-lines-size: 2.5
+    color: blue
+    crop-size: 1, 50, 8, 5.67
+    id-orient: north
+    id-pos: 400,430
+    id-side: binding
+    id-text: <foid>
+    layout: 1x1
+    no-crops: yes
+    orientation: west
+    pdf-size: 927,2592
+    pre-trim-crops: 26.28,28.44
+    simplex: yes
+    sheet-offset: 36,36
+    size: 1700.64,678.96
+
+deluxe-wrap:
+    barcode: front vertical 600,-25
+    #barcode: front vertical 700,-29    # cut off
+    barcode-size: 12
+    center-lines: horiz 16.67
+    center-lines-size: 2.5
+    color: blue
+    crop-size: 1, 50, 8, 5.67
+    id-orient: north
+    id-pos: 450,157
+    id-side: binding
+    id-text: <foid>
+    layout: 1x1
+    no-crops: yes
+    orientation: west
+    pdf-size: 927,2592
+    pre-trim-crops: -905,37.8
+    simplex: yes
+    sheet-offset: 36,36
+    size: 2239.92,881.28
+
+
+# content types
+
+B:
+    color: red
+    cover: classic-die
+    crop-size: .5, 5, 8, 4.25
+    #crop-size: 1, 5, 8, 7.128
+    id-text: <foid> - <page>
+    layout: 2x1
+    orientation: north
+    size: 800.5,620.5
+    workorder: yes
+
+D:
+    center-lines: 0, 27
+    chart-orient: horiz
+    color: red
+    cover: pocket
+    cover_shadow: yellow
+    crop-size: .5, 5, 8, 4.32
+    #crop-size: .5, 5, 8, 9
+    extra-text: 
+        outer-centers: "-- Cut Last --"
+    gap: 21.6
+    id-side: non-binding
+    id-size: 20
+    id-text: <foid> - <page>
+    layout: 2x2
+    no-extend-separator: yes
+    orientation: west
+    pdf-size: 898.56,1274.4
+    reverse-cols: yes
+    size: 566.424,438.624
+
+F:
+    color: red
+    cover: deluxe-die
+    id-text: <foid> - <page>
+    layout: 1x1
+    no-flip: yes
+    orientation: west
+    size: 813.6,1053.36
+    workorder: yes
+
+H:
+    color: green
+    cover: classic-jacket
+    crop-size: .5, 5, 8, 4.25
+    #crop-size: 1, 5, 8, 7.128
+    id-text: <foid> - <page>
+    layout: 2x1
+    orientation: north
+    size: 800.5,620.5
+    workorder: yes
+
+J:
+    color: green
+    cover: deluxe-jacket
+    id-text: <foid> - <page>
+    layout: 1x1
+    no-flip: yes
+    orientation: west
+    size: 813.6,1053.36
+    workorder: yes
+
+K:
+    color: lt-blue
+    crop-size: 1, 10, 5.67, 5.67
+    id-side: non-binding
+    id-text: <foid> - Copy <page> of <qty>
+    layout: 2x2
+    logo: back bottom
+    logo-version: small
+    orientation: west
+    size: 515.52,371.52
+    workorder: yes
+
+L:
+    color: lt-blue
+    crop-size: 1, 15, 10, 5.67
+    gap: 50
+    id-side: non-binding
+    id-text: <foid> - Copy <page> of <qty>
+    layout: 2x1
+    logo: front
+    logo-version: linear
+    orientation: north
+    size: 731.52,515.52
+    workorder: yes
+
+M:
+    color: yellow
+    content-orientation: west
+    crop-size: 1, 10, 5.67, 5.67
+    id-side: non-binding
+    id-text: <foid> - Page <page> of <pages>
+    layout: 1x1
+    no-flip-last: yes
+    orientation: west
+    size: 731.52,947.52
+    workorder: yes
+
+N:
+    color: blue
+    cover: classic-wrap
+    crop-size: .5, 5, 8, 4.25
+    #crop-size: 1, 5, 8, 7.128
+    id-text: <foid> - <page>
+    layout: 2x1
+    orientation: north
+    size: 800.5,620.5
+    workorder: yes
+
+P:
+    color: blue
+    cover: deluxe-wrap
+    id-text: <foid> - <page>
+    layout: 1x1
+    no-flip: yes
+    orientation: west
+    size: 813.6,1053.36
+    workorder: yes
+
+
+
+# misc types
+
+bestbuy:
+    color: red
+    content-orientation: west
+    crop-size: .5, 5, 8, 4.25
+    layout: 2x1
+    orientation: north
+    simplex: yes
+    size: 800.5,620.5
+
+insert:
+    color: red
+    gap: 1
+    id-gap: 1
+    id-side: non-binding
+    id-text:
+    layout: 3x3
+    no-chart: yes
+    no-crops: yes
+    orientation: west
+    #size: 273.6,410.4
+    size: 273.6,351.77
+
+insert4up:
+    color: red
+    crop-size: .5, 5, 8, 9
+    gap: 21.6
+    layout: 2x2
+    orientation: west
+    #pdf-size: 898.56,1274.4
+    #reverse-cols: yes
+    #size: 566.424,438.624
+    size: 522,378
+

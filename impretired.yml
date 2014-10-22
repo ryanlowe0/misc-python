@@ -1,0 +1,190 @@
+# cover types
+
+iphoto medium-soft:
+    barcode: back
+    color: yellow
+    id-side: non-binding
+    id-text: <foid> - Cover - Qty <qty>
+    layout: 1x1
+    orientation: west
+    pre-trim-crops: 6.16,20
+    size: 1170.49,428.67
+
+two up pocket:
+    barcode: back 420,1045
+    color: red
+    id-side: non-binding
+    id-size: 16
+    id-text: <foid> - <page> of <qty>
+    layout: 1x1
+    logo: back
+    no-flip: yes
+    orientation: west
+    pre-trim-crops: 6.16,0
+    size: 1204.56,438.48
+
+iphoto small-soft:
+    barcode: back
+    color: yellow
+    id-side: non-binding
+    id-text: <foid> - Cover - Qty <qty>
+    layout: 2x3
+    orientation: west
+    size: 542.37,194.67
+    spaced: yes
+
+# content types
+
+simplex A:
+    blank-backs: yes
+    color: red
+    cover: classic-die
+    crop-size: .5, 5, 8, 4.25
+    #crop-size: 1, 5, 8, 7.128
+    id-text: <foid> - <page>
+    layout: 2x1
+    orientation: north
+    size: 800.5,620.5
+    workorder: yes
+
+two up C:
+    blank-backs: yes
+    center-line: yes
+    color: red
+    cover: pocket
+    cover_shadow: yellow
+    gap: 8.16
+    id-side: non-binding
+    id-size: 20
+    id-text: <foid> - <page>
+    layout: 2x1
+    orientation: north
+    pre-trim-crops: 20,6.16
+    size: 566.424,438.624
+
+two up D:
+    center-line: yes
+    color: red
+    cover: pocket
+    cover_shadow: yellow
+    gap: 8.16
+    id-side: non-binding
+    id-size: 20
+    id-text: <foid> - <page>
+    layout: 2x1
+    orientation: north
+    pre-trim-crops: 20,6.16
+    size: 566.424,438.624
+
+simplex E:
+    blank-backs: yes
+    color: red
+    cover: deluxe-die
+    id-text: <foid> - <page>
+    layout: 1x1
+    no-flip: yes
+    orientation: west
+    size: 813.6,1053.36
+    workorder: yes
+
+simplex G:
+    blank-backs: yes
+    color: green
+    cover: classic-jacket
+    crop-size: .5, 5, 8, 4.25
+    #crop-size: 1, 5, 8, 7.128
+    id-text: <foid> - <page>
+    layout: 2x1
+    orientation: north
+    size: 800.5,620.5
+    workorder: yes
+
+simplex I:
+    blank-backs: yes
+    color: green
+    cover: deluxe-jacket
+    id-text: <foid> - <page>
+    layout: 1x1
+    no-flip: yes
+    orientation: west
+    size: 813.6,1053.36
+    workorder: yes
+
+adhesive K:
+    adhesive: yes
+    color: green
+    id-text: <foid> - Page <page> of <pages>
+    layout: 2x1
+    orientation: north
+    size: 797.67,617.67
+    workorder: yes
+
+adhesive L:
+    adhesive: yes
+    color: green
+    id-text: <foid> - Page <page> of <pages>
+    layout: 2x1
+    orientation: north
+    size: 797.67,617.67
+    workorder: yes
+
+adhesive M:
+    adhesive: yes
+    color: green
+    id-text: <foid> - Page <page> of <pages>
+    layout: 1x1
+    orientation: west
+    size: 813.6,1053.36
+    workorder: yes
+
+adhesive N:
+    adhesive: yes
+    color: green
+    id-text: <foid> - Page <page> of <pages>
+    layout: 1x1
+    orientation: west
+    size: 813.6,1053.36
+    workorder: yes
+
+iphoto O:
+    adhesive: yes
+    color: yellow
+    crop-size: .5, 5, 8, 4.25
+    id-text: <foid> - Page <page> of <pages>
+    layout: 2x1
+    orientation: north
+    size: 800.5,620.5
+    workorder: yes
+
+iphoto S:
+    id-side: non-binding
+    center-lines: yes
+    color: yellow
+    cover: medium-soft
+    gap: 8.16
+    id-text: <foid> - Page <page> of <pages>
+    layout: 2x1
+    orientation: north
+    pre-trim-crops: 20,6.16
+    size: 571.73,428.67
+
+iphoto U:
+    id-side: non-binding
+    color: yellow
+    cover: small-soft
+    id-text: <foid> - Page <page> of <pages>
+    layout: 4x3
+    orientation: west
+    size: 257.67,194.67
+    spaced: yes
+
+iphoto W:
+    id-side: non-binding
+    center-lines: yes
+    color: yellow
+    id-text: <foid> - Page <page> of <pages>
+    layout: 2x1
+    orientation: north
+    size: 797.67,617.67
+
+

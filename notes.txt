@@ -1,0 +1,164 @@
+
+
+
+
+
+
+TEXT PATTERNS
+
+\d+-(([sp]|ch)\d\d_)*([sp]|ch)\d\d)
+__________________________________________________________
+1+ digits, -, join with _ 1+ ([sp] | ch, 2 digits)
+__________________________________________________________
+1+ digits
+-
+join with _ 1+
+    [sp] | ch
+    2 digits
+__________________________________________________________
+
+
+some digits just before -, some (s or p or ch, 2 digits, except-last _)
+
+some digits just before - then some (s, p, or ch then 2 digits then except-last _)
+
+
+regions:
+from <start pattern> to <end pattern>
+
+some <>  = <>+
+any <>   = <>*
+maybe <> = <>?
+2-3 <>   = <>{2,3}
+
+is NamedPattern
+
+
+describing patterns. inferring patterns from examples. find balance between
+generality and specificity - try to match 2 - 20 things? user should be able
+to increase or decrease specificity or edit rules directly.
+
+useability:
+
+pattern language in vi
+
+abbreviations
+
+:ab fr from
+:ab con containing
+:ab jb just before
+
+automatic literal quoting (any string thats not a keyword)
+named patterns
+
+defining: CONtaining X = .* X .*    -- upper case shows abbrev?
+          ^^^
+Just Before -> jb
+^    ^
+
+
+
+
+
+
+
+
+
+
+
+REGIONS
+
+
+patterns        language for describing text regions
+regions         spans of contiguous characters within a text
+text            string of characters
+transforms      region to region substitutions
+
+inference       find concise patterns that match a set of regions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-macros expand to repetitive (in the sense of patterned, not bad) code.
+-conventions encourage patterns
+-finding patterns can lead to macro extraction?
+-macros can be tricky, repetitive code is easy to understand but error prone.
+-could macros be thought of as a purely mental model (in either the human's
+ or the ai's mind)? code always displays expanded, perhaps collapsed to ...
+
+
+
+
+
+
+
+
+the ast is the primary semantic structure. terminals are fleshed out using
+token data to include line/col info. formerlly implied terminals are made
+explicit (eg colons following compound statement setup lines, and at-signs
+prefixing decorators). Comments are added the same way as terminals to the
+stmt/expr they (hopefully) refer to.
+
+
+
+moving a node from one line to another means incr/decr all its sub nodes by
+the same number, and doing the same for all nodes from the insertion point to
+the end of the program. its annoying but straightforward..
+
+
+
+if <>:
+    <>
+elif <>:
+    <>
+else:
+    <>
+
+is equiv to:
+
+if <>:
+    <>
+else:
+    if <>:
+        <>
+    else:
+        <>
+
+
+If(if_token, expr test, colon_token, stmt* body, stmt* orelse, comment?)
+      ^                      ^
+    added                  added
+ may be elif
+   or else
+
+tokens all have line and col numbers
+
+if comment is on If, it goes before; if on test it goes at line end? no, just
+rely on line/col for loc. assignee is stmt (If) unless multi-line, then its
+the expr on same line as comment. just assigning to stmts is a good first
+step though..
+
+
